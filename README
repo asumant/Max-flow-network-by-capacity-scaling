@@ -16,6 +16,9 @@
 	not less that Delta, then augments flow along this path and repeats this procedure 
 	while any such Delta-path exists in the residual network. 
 	
+	Program implementation uses dynamic memory allocation for adjacency list creation,
+	path bookkeeping and all other data structure needs.
+	
 	Language of Implementation:
 	---------------------------
 	This program in implemented in C.
@@ -39,7 +42,7 @@
 	2. BFS Traversal of Graph: On each iteration after delta = delta/2, we should find 
 	   if there exist a source to sink path. BFS is used for finding this path in graph.
 	
-	3. Bottleneck: finding a width of source-sink path selected by BFS.
+	3. Bottleneck: finding a minimum capacity of source-sink path selected by BFS.
 
 	4. Augment path: Create residual graph G' depending on flow value on selected path.
 
