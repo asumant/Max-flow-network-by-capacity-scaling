@@ -1,0 +1,48 @@
+*************************************************************************************
+		CSE 598 Design and Analysis of Algorithms
+	
+	Project Name: Max flow network calculation using capacity scaling.
+-------------------------------------------------------------------------------------	
+	Author: Akshay Mohan Sumant
+	ASU ID: 1202846146
+*************************************************************************************	
+	Summary:
+	---------
+	Informally, the main idea of the algorithm is to augment the flow along paths 
+	with sufficient large capacities, instead of augmenting along maximal capacities. 
+	More formally, let's introduce a parameter Delta. First, Delta is quite a large 
+	number such that it is a nearest power of two lesser than or equal to maximum 
+	capacity in a graph. The algorithm tries to find an augmenting path with capacity 
+	not less that Delta, then augments flow along this path and repeats this procedure 
+	while any such Delta-path exists in the residual network. 
+	
+	Language of Implementation:
+	---------------------------
+	This program in implemented in C.
+
+	Instructions to run:
+	---------------------
+	To execute this program, perform following steps.
+
+	$ cd Max-flow-network-by-capacity-scaling/
+	$ make
+	$ ./run
+
+	Algorithms implemented:
+	-----------------------
+	Following are the algorithms implemented in this program. These are all the building
+	blocks for Max flow Capacity Scaling Algorithm.
+
+	1. Delta calculation: This algorithm calculated delta from maximum capacity channel
+	   in graph.
+
+	2. BFS Traversal of Graph: On each iteration after delta = delta/2, we should find 
+	   if there exist a source to sink path. BFS is used for finding this path in graph.
+	
+	3. Bottleneck: finding a width of source-sink path selected by BFS.
+
+	4. Augment path: Create residual graph G' depending on flow value on selected path.
+
+	5. Calculate min-cut: This algorithm runs BFS on residual graph G' on graph at the 
+	   end of max flow calculation to divide set of vertices {V} into Source set S and 
+	   sink set T.
